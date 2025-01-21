@@ -16,10 +16,10 @@ const Reader = struct {
 
     //fn read(self: Reader) std.SemanticVersion {}
 
-    fn get_version_from_zon(self: Reader) ![]const u8 {
-        const allocator = std.heap.page_allocator;
-
-        // Read build.zig.zon
-        const file
-    }
+    //fn get_version_from_zon(self: Reader) ![]const u8 {
+    //    const allocator = std.heap.page_allocator;
+    //
+    //    // Read build.zig.zon
+    //    const file
+    //}
 };
