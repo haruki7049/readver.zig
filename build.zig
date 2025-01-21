@@ -31,4 +31,13 @@ pub fn build(b: *std.Build) void {
 
     const test_step = b.step("test", "Run unit tests");
     test_step.dependOn(&run_lib_unit_tests.step);
+
+    // Docs
+    const docs_step = b.step("docs", "Install documents into zig-out/share/docs");
+    const docs_install = b.addInstallDirectory(.{
+        .source_dir = lib.getEmittedDocs(),
+        .install_dir = .prefix,
+        .install_subdir = "share/docs",
+    });
+    docs_step.dependOn(&docs_install.step);
 }
