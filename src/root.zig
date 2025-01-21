@@ -1,10 +1,25 @@
 const std = @import("std");
 const testing = std.testing;
 
-export fn add(a: i32, b: i32) i32 {
-    return a + b;
-}
+const Reader = struct {
+    b: std.Build,
 
-test "basic add functionality" {
-    try testing.expect(add(3, 7) == 10);
-}
+    const initOptions = struct {
+        b: std.Build,
+    };
+
+    pub fn init(options: initOptions) Reader {
+        return Reader{
+            .b = options.b,
+        };
+    }
+
+    //fn read(self: Reader) std.SemanticVersion {}
+
+    fn get_version_from_zon(self: Reader) ![]const u8 {
+        const allocator = std.heap.page_allocator;
+
+        // Read build.zig.zon
+        const file
+    }
+};
